@@ -10,7 +10,7 @@ import os
 import subprocess
 import time
 import shutil
-import yaml
+import yaml # pip install PyYaml
 from pathlib import Path
 
 # Verifica sistemul de operare este Windows
