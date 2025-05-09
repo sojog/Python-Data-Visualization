@@ -1,3 +1,4 @@
+{% load static  %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,5 +8,28 @@
 </head>
 <body>
     <h1>choose_countries</h1>
+
+    <form action="" method="post">
+        {% csrf_token %}
+        {% for country in countries  %}
+            <input type="checkbox" name="{{country}}" id="" >
+            <label for="{{country}}"> {{country}}</label>
+            
+        {% endfor %}
+
+        <input type="submit" value="Alege">
+    </form>
+
+    {% if base64_image %}
+         <img src="data:image/png;base64,{{base64_image}}" alt="">
+
+    {% else %}
+         <img src="{% static result_image %}" alt="">
+
+    {% endif %}
+
+    
+   
+
 </body>
 </html>
