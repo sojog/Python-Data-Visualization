@@ -11,8 +11,15 @@
 
     <form action="" method="post">
         {% csrf_token %}
+
         {% for country in countries  %}
-            <input type="checkbox" name="{{country}}" id="" >
+            <input type="checkbox" name="{{country}}" id="" 
+                {% if country in tari %}
+                    checked
+                {% endif %}
+
+            
+            >
             <label for="{{country}}"> {{country}}</label>
             
         {% endfor %}

@@ -33,6 +33,7 @@ def choose_countries_view(request):
 
 	result_image = '10_tari.png'
 	base64_image = None
+	tari = None
 
 	if request.method == "POST":
 		print("parametri:", request.POST.keys())
@@ -48,6 +49,7 @@ def choose_countries_view(request):
 	context = {
 		"countries": countries,
 		"result_image": result_image,
-		"base64_image":base64_image
+		"base64_image":base64_image,
+		'tari': tari 
 	}
 	return render(request, 'choose_countries.html', context)
