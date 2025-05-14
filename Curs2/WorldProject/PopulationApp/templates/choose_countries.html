@@ -10,6 +10,16 @@
     <h1>choose_countries</h1>
 
     <form action="" method="post">
+
+        <select name="measure" id="">
+            <option value="tari" {% if measure == 'tari'  %} selected {% endif %}
+            >Populatie</option>
+            <option value="suprafete" {% if measure == 'suprafete'  %} selected {% endif %}
+            
+            >Suprafete</option>
+        </select>
+
+
         {% csrf_token %}
 
         {% for country in countries  %}
