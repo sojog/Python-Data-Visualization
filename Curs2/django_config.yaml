@@ -1,0 +1,13 @@
+# Schimba PROJECT_NAME cu numele proiectului
+MilanProject:  
+        # Schimba APP_NAME1 cu numele aplicatiei
+        TeamApp:
+
+            - view_name: all_players
+              url_path_name: all
+              template_name: all_players
+            - view_name: player_details
+              url_path_name: player
+              template_name: player_details
+
+        
