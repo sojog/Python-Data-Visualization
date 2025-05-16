@@ -7,5 +7,14 @@
 </head>
 <body>
     <h1>all_categories</h1>
+    <ol>
+        {% for cat in categories  %}
+
+            <li>
+                {{cat.name}}
+            </li>
+
+        {% endfor %}
+    </ol>
 </body>
 </html>
