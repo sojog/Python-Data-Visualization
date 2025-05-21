@@ -17,7 +17,13 @@
             
             <p>Pret: <b> {{prod.price}} lei </b></p>
 
-            <img src="{{prod.image.url}}" alt="">
+            {% if prod.image %}
+                   <img src="{{prod.image.url}}" alt="">
+            {% else %}
+                    <p>Imaginea nu exista</p>
+            {% endif %}
+
+         
 
         </li>
     {% endfor %}
