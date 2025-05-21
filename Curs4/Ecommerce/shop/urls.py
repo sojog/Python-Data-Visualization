@@ -8,6 +8,6 @@ urlpatterns = [
 
 	path("all", all_products_view),
 	path("details", product_details_view),
-	path("categories", all_categories_view),
-	path("category", category_details_view),
+	path("categories", all_categories_view, name="categories_url"),
+	path("categories/<slug>", category_details_view),
 ]

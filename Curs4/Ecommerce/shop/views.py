@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 # Create your views here.
 from .models import Product, Category
@@ -24,6 +24,15 @@ def all_categories_view(request):
 	}
 	return render(request, 'all_categories.html', context)
 
-def category_details_view(request):
-	context = {}
+def category_details_view(request, slug):
+	category_details = Category.objects.filter(slug=slug).first()
+	if not category_details:
+		return redirect("categories_url")
+	
+
+	products = Product.objects.filter(category=category_details)
+
+	context = {"category": category_details,
+			"products":products}
+	
 	return render(request, 'category_details.html', context)

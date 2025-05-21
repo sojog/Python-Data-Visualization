@@ -10,6 +10,8 @@ from django.core.management.base import BaseCommand, CommandError
 from django.core.files.base import ContentFile
 from shop.models import Product, Category
 import requests
+import time
+import random
 
 ### python manage.py fetch_product_tema
 class Command(BaseCommand):
@@ -19,7 +21,7 @@ class Command(BaseCommand):
         BASE_URL = "https://dummyjson.com/"
         URL_PRODUCTS = BASE_URL + "products"
 
-        LIMIT = 1
+        LIMIT = 50
 
         response = requests.get(URL_PRODUCTS, {"limit":LIMIT})
         product_list = response.json()["products"]
@@ -29,9 +31,11 @@ class Command(BaseCommand):
             name = prod_dict["title"]
             slug = name.lower().replace(" ", "-")
             description = prod_dict["description"] 
-            
             price = prod_dict["price"]
 
+            if Product.objects.filter(name=name, slug=slug, description=description):
+                print("Produsul deja exista in baza de date..!")
+                continue
 
             image_url = prod_dict["thumbnail"]
             image_response = requests.get(image_url)
@@ -39,7 +43,6 @@ class Command(BaseCommand):
             image_content = image_response.content
 
             product = Product(name=name, slug=slug, description=description, price=price)
-
 
             category_name = prod_dict["category"]
             print("Category_name:", category_name)
@@ -53,5 +56,7 @@ class Command(BaseCommand):
             product.image.save(name, ContentFile(image_content))
 
             product.save()
+
+            time.sleep(random.randint(2, 5))
 
         print("S-a terminat...")
