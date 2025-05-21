@@ -1,0 +1,29 @@
+# Schimba PROJECT_NAME cu numele proiectului
+Ecommerce:  
+        # Schimba APP_NAME1 cu numele aplicatiei
+        shop:
+
+            - view_name: all_products
+              url_path_name: all
+              template_name: all_products
+            - view_name: product_details
+              url_path_name: details
+              template_name: product_details
+
+            - view_name: all_categories
+              url_path_name: categories
+              template_name: all_categories
+              
+            - view_name: category_details
+              url_path_name: category
+              template_name: category_details
+
+
+
+        # Schimba APP_NAME2 cu numele aplicatiei
+        cart:
+            - view_name: cart
+              url_path_name: cart
+              template_name: cart
+
+        # Mai adauga aplicatii si view-uri in acest fel
