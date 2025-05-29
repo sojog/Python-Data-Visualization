@@ -8,8 +8,8 @@
 <body>
     <h1>cart</h1>
     <ol>
-        {% for prod in  produse %}
-            <li> {{prod}}</li>
+        {% for prod, quantity in  produse.items %}
+            <li> {{prod}} - {{quantity}}</li>
         {% endfor %}
        
     </ol>
