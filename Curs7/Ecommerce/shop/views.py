@@ -28,13 +28,19 @@ def add_to_cart_view_pandas_version(request, slug):
 
 
 
+# from cart.views import CartLogic
+# cart_logic = CartLogic(request)
+# "cart":cart_logic
+
+
 def home_view(request):
 
 	products = Product.objects.all()
 	form = AddToCartForm()
+	
 	context = {
 		"products": products,
-		"form" : form
+		"form" : form,
 	}
 	
 	return render(request, 'all_products.html', context)
