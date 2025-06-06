@@ -28,7 +28,7 @@ def add_to_cart_view_pandas_version(request, slug):
 
 
 
-def all_products_view(request):
+def home_view(request):
 
 	products = Product.objects.all()
 	form = AddToCartForm()

@@ -6,6 +6,19 @@
     <title>cart</title>
 </head>
 <body>
+
+
+    <header>
+        <nav>
+            
+            <a href="{% url 'home_url'  %}">Home</a>
+            <a href="">Contact</a>
+            
+            <a href="{% url 'cart_url'  %}" >Cart</a>
+        </nav>
+    </header>
+
+
     <h1>cart</h1>
     <ol>
         {% for prod, quantity in  produse.items %}
