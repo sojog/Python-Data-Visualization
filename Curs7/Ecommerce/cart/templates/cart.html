@@ -1,14 +1,19 @@
 {% extends "shop/base.html" %}
 
+    {% block title %}
+        Cart
+    {% endblock title %}
 
   {% block main %}
 
     <h1>cart</h1>
     <ol>
-        {% for prod, quantity in  produse.items %}
+        {% for prod, quantity in  cart.products.items %}
             <li> {{prod}} - {{quantity}}</li>
         {% endfor %}   
     </ol>
-    
+
+    <h2> Total {{cart.total_price}} </h2>
+
 
 {% endblock main %}
